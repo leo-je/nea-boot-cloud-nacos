@@ -1,0 +1,42 @@
+{
+  "name": "nea-boot-cloud-nacos",
+  "version": "0.1.0",
+  "description": "Nacos 配置中心与注册中心适配，用于 nea-boot 框架",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "<shengteli@caih.com>",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "rm -rf dist && npx tsc -p tsconfig.build.json && cp README.md dist/README.md",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit",
+    "test": "node scripts/run-tests.mjs",
+    "dev": "tsx examples/basic.ts"
+  },
+  "dependencies": {
+    "nacos": "^2.6.3"
+  },
+  "peerDependencies": {
+    "nea-boot": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.9",
+    "nea-boot": "file:../nea",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3"
+  }
+}
